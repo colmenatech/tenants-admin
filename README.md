@@ -1,2 +1,2 @@
-# elcatalogo_admin
+# elcatalogo-admin
 Administration system for el catalogo
