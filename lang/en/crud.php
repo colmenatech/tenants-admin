@@ -32,7 +32,7 @@ return [
         'inputs' => [
             'name' => 'Name',
             'description' => 'Description',
-            'prince' => 'Prince',
+            'price' => 'Price',
             'entities_threshold' => 'Entities Threshold',
             'features_gates' => 'Features Gates',
         ],

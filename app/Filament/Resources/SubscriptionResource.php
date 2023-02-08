@@ -74,12 +74,12 @@ class SubscriptionResource extends Resource
                             'lg' => 12,
                         ]),
 
-                    TextInput::make('prince')
-                        ->label(__('Prince'))
+                    TextInput::make('price')
+                        ->label(__('Price'))
                         ->rules(['numeric'])
-                        ->required()
+                        ->nullable()
                         ->numeric()
-                        ->placeholder('Prince')
+                        ->placeholder('Price')
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -123,8 +123,8 @@ class SubscriptionResource extends Resource
                     ->toggleable()
                     ->searchable()
                     ->limit(50),
-                Tables\Columns\TextColumn::make('prince')
-                    ->label(__('Prince'))
+                Tables\Columns\TextColumn::make('price')
+                    ->label(__('Price'))
                     ->toggleable()
                     ->searchable(true, null, true),
             ])

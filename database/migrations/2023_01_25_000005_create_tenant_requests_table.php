@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('phone')->unique();
             $table->longText('description');
             $table->string('image')->nullable();
+            $table->json('extra_data')->nullable();
 
             $table->index('email');
             $table->index('phone');

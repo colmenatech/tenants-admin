@@ -62,6 +62,8 @@ class TenantRequestControllerTest extends TestCase
 
         $response = $this->post(route('tenant-requests.store'), $data);
 
+        unset($data['extra_data']);
+
         $this->assertDatabaseHas('tenant_requests', $data);
 
         $tenantRequest = TenantRequest::latest('id')->first();
@@ -112,12 +114,15 @@ class TenantRequestControllerTest extends TestCase
             'email' => $this->faker->unique->email,
             'phone' => $this->faker->unique->phoneNumber,
             'description' => $this->faker->text,
+            'extra_data' => [],
         ];
 
         $response = $this->put(
             route('tenant-requests.update', $tenantRequest),
             $data
         );
+
+        unset($data['extra_data']);
 
         $data['id'] = $tenantRequest->id;
 

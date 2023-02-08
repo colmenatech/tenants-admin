@@ -75,7 +75,13 @@ class TenantResource extends Resource
 
                     TextInput::make('domain')
                         ->label(__('Domain'))
-                        ->rules(['max:255', 'string'])
+                        ->rules([
+                            'max:255',
+                            'string',
+                            'regex:/^[A-Za-z0-9\.]*[.](' .
+                            config('cms.domain') .
+                            ')$/',
+                        ])
                         ->required()
                         ->unique(
                             'tenants',

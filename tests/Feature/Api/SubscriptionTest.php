@@ -50,6 +50,8 @@ class SubscriptionTest extends TestCase
 
         $response = $this->postJson(route('api.subscriptions.store'), $data);
 
+        unset($data['unit_of_periodicity']);
+
         $this->assertDatabaseHas('subscriptions', $data);
 
         $response->assertStatus(201)->assertJsonFragment($data);
@@ -65,15 +67,18 @@ class SubscriptionTest extends TestCase
         $data = [
             'name' => $this->faker->name(),
             'description' => $this->faker->text,
-            'prince' => $this->faker->randomNumber(1),
+            'price' => $this->faker->randomNumber(1),
             'entities_threshold' => [],
             'features_gates' => [],
+            'unit_of_periodicity' => 'hour',
         ];
 
         $response = $this->putJson(
             route('api.subscriptions.update', $subscription),
             $data
         );
+
+        unset($data['unit_of_periodicity']);
 
         $data['id'] = $subscription->id;
 

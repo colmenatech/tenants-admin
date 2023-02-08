@@ -66,7 +66,13 @@ class TenantsRelationManager extends RelationManager
 
                 TextInput::make('domain')
                     ->label(__('Domain'))
-                    ->rules(['max:255', 'string'])
+                    ->rules([
+                        'max:255',
+                        'string',
+                        'regex:/^[A-Za-z0-9\.]*[.](' .
+                        config('cms.domain') .
+                        ')$/',
+                    ])
                     ->unique('tenants', 'domain', fn(?Model $record) => $record)
                     ->placeholder('Domain')
                     ->columnSpan([

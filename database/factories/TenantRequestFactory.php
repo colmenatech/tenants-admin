@@ -26,6 +26,7 @@ class TenantRequestFactory extends Factory
             'email' => $this->faker->unique->email,
             'phone' => $this->faker->unique->phoneNumber,
             'description' => $this->faker->text,
+            'extra_data' => [],
         ];
     }
 }
