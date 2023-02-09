@@ -16,6 +16,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.5",
+        "ryangjchandler/filament-profile": "^0.2.2",
         "spatie/laravel-permission": "^5.9"
     },
     "require-dev": {
