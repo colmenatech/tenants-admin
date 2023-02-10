@@ -16,9 +16,16 @@ return new class extends Migration {
             $table->uuid('id')->primary();
             $table->string('name');
             $table->longText('description');
-            $table->decimal('prince');
+            $table->decimal('price')->nullable();
             $table->json('entities_threshold')->nullable();
             $table->json('features_gates')->nullable();
+            $table->set('unit_of_periodicity', [
+                'hour',
+                'day',
+                'week',
+                'month',
+                'year',
+            ]);
 
             $table->timestamps();
             $table->softDeletes();

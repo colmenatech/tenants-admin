@@ -78,6 +78,8 @@ class SubscriptionControllerTest extends TestCase
 
         $response = $this->post(route('subscriptions.store'), $data);
 
+        unset($data['unit_of_periodicity']);
+
         $data['entities_threshold'] = $this->castToJson(
             $data['entities_threshold']
         );
@@ -130,9 +132,10 @@ class SubscriptionControllerTest extends TestCase
         $data = [
             'name' => $this->faker->name(),
             'description' => $this->faker->text,
-            'prince' => $this->faker->randomNumber(1),
+            'price' => $this->faker->randomNumber(1),
             'entities_threshold' => [],
             'features_gates' => [],
+            'unit_of_periodicity' => 'hour',
         ];
 
         $data['entities_threshold'] = json_encode($data['entities_threshold']);
@@ -142,6 +145,8 @@ class SubscriptionControllerTest extends TestCase
             route('subscriptions.update', $subscription),
             $data
         );
+
+        unset($data['unit_of_periodicity']);
 
         $data['id'] = $subscription->id;
 

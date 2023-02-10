@@ -26,7 +26,7 @@ class SubscriptionUpdateRequest extends FormRequest
         return [
             'name' => ['required', 'max:255', 'string'],
             'description' => ['required', 'string'],
-            'prince' => ['required', 'numeric'],
+            'price' => ['nullable', 'numeric'],
             'entities_threshold' => ['nullable', 'json'],
             'features_gates' => ['nullable', 'json'],
         ];

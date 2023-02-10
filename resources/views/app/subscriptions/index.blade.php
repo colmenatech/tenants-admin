@@ -56,7 +56,7 @@
                                     @lang('crud.subscriptions.inputs.description')
                                 </th>
                                 <th class="px-4 py-3 text-right">
-                                    @lang('crud.subscriptions.inputs.prince')
+                                    @lang('crud.subscriptions.inputs.price')
                                 </th>
                                 <th class="px-4 py-3 text-left">
                                     @lang('crud.subscriptions.inputs.entities_threshold')
@@ -77,7 +77,7 @@
                                     {{ $subscription->description ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-right">
-                                    {{ $subscription->prince ?? '-' }}
+                                    {{ $subscription->price ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-right">
                                     <pre>

@@ -29,9 +29,9 @@
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.subscriptions.inputs.prince')
+                            @lang('crud.subscriptions.inputs.price')
                         </h5>
-                        <span>{{ $subscription->prince ?? '-' }}</span>
+                        <span>{{ $subscription->price ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">

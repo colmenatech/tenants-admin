@@ -18,9 +18,10 @@ class Subscription extends Model
     protected $fillable = [
         'name',
         'description',
-        'prince',
+        'price',
         'entities_threshold',
         'features_gates',
+        'unit_of_periodicity',
     ];
 
     protected $searchableFields = ['*'];

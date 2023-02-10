@@ -25,13 +25,12 @@
 
     <x-inputs.group class="w-full">
         <x-inputs.number
-            name="prince"
-            label="Prince"
-            :value="old('prince', ($editing ? $subscription->prince : ''))"
+            name="price"
+            label="Price"
+            :value="old('price', ($editing ? $subscription->price : ''))"
             max="255"
             step="0.01"
-            placeholder="Prince"
-            required
+            placeholder="Price"
         ></x-inputs.number>
     </x-inputs.group>
 

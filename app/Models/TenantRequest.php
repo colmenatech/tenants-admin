@@ -15,11 +15,21 @@ class TenantRequest extends Model
     use Searchable;
     use SoftDeletes;
 
-    protected $fillable = ['email', 'phone', 'description', 'image'];
+    protected $fillable = [
+        'email',
+        'phone',
+        'description',
+        'image',
+        'extra_data',
+    ];
 
     protected $searchableFields = ['*'];
 
     protected $table = 'tenant_requests';
+
+    protected $casts = [
+        'extra_data' => 'array',
+    ];
 
     public function tenants()
     {

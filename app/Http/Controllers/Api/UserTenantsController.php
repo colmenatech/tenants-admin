@@ -47,6 +47,7 @@ class UserTenantsController extends Controller
                 'unique:tenants,domain',
                 'max:255',
                 'string',
+                'regex:/^[A-Za-z0-9\.]*[.](' . config('cms.domain') . ')$/',
             ],
             'database' => [
                 'required',

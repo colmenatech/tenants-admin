@@ -50,6 +50,8 @@ class TenantRequestTest extends TestCase
 
         $response = $this->postJson(route('api.tenant-requests.store'), $data);
 
+        unset($data['extra_data']);
+
         $this->assertDatabaseHas('tenant_requests', $data);
 
         $response->assertStatus(201)->assertJsonFragment($data);
@@ -66,12 +68,15 @@ class TenantRequestTest extends TestCase
             'email' => $this->faker->unique->email,
             'phone' => $this->faker->unique->phoneNumber,
             'description' => $this->faker->text,
+            'extra_data' => [],
         ];
 
         $response = $this->putJson(
             route('api.tenant-requests.update', $tenantRequest),
             $data
         );
+
+        unset($data['extra_data']);
 
         $data['id'] = $tenantRequest->id;
 
