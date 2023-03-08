@@ -25,7 +25,7 @@ return new class extends Migration {
                 'week',
                 'month',
                 'year',
-            ]);
+            ])->default('year');
 
             $table->timestamps();
             $table->softDeletes();

@@ -93,7 +93,9 @@ class TenantResource extends Resource
                             'default' => 12,
                             'md' => 12,
                             'lg' => 12,
-                        ]),
+                        ])
+                        //->suffix('.indespro.local')
+                        ->helperText('Ej. Nombre.indespro.local'),
 
                     TextInput::make('database')
                         ->label(__('Database'))
@@ -109,7 +111,8 @@ class TenantResource extends Resource
                             'default' => 12,
                             'md' => 12,
                             'lg' => 12,
-                        ]),
+                        ])
+                        ->disabledOn('edit'),
 
                     FileUpload::make('image')
                         ->label(__('Image'))

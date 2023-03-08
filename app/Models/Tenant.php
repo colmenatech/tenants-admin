@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\DB;
 
 class Tenant extends Model
 {
@@ -31,6 +32,13 @@ class Tenant extends Model
         'system_settings' => 'array',
         'settings' => 'array',
     ];
+
+    protected static function booted(): void
+    {
+        static::created(function (Tenant $tenant) {
+            DB::statement("CREATE DATABASE IF NOT EXISTS $tenant->database");
+        });
+    }
 
     public function user()
     {
