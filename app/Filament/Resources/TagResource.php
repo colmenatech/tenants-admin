@@ -45,7 +45,7 @@ class TagResource extends Resource
                         ->label(__('Name'))
                         ->rules(['max:255', 'string'])
                         ->required()
-                        ->placeholder('Name')
+                        ->placeholder(__('Name'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -66,7 +66,7 @@ class TagResource extends Resource
                             'strike',
                         ])
                         ->required()
-                        ->placeholder('Description')
+                        ->placeholder(__('Description'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,

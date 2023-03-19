@@ -66,7 +66,7 @@ class TenantResource extends Resource
                             'name',
                             fn(?Model $record) => $record
                         )
-                        ->placeholder('Name')
+                        ->placeholder(__('Name'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -88,7 +88,7 @@ class TenantResource extends Resource
                             'domain',
                             fn(?Model $record) => $record
                         )
-                        ->placeholder('Domain')
+                        ->placeholder(__('Domain'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -106,7 +106,7 @@ class TenantResource extends Resource
                             'database',
                             fn(?Model $record) => $record
                         )
-                        ->placeholder('Database')
+                        ->placeholder(__('Database'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -123,7 +123,7 @@ class TenantResource extends Resource
                         ->directory(
                             request()->host() . '/uploads/' . 'Tenants/images/'
                         )
-                        ->placeholder('Image')
+                        ->placeholder(__('Image'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -154,7 +154,6 @@ class TenantResource extends Resource
                         ->nullable()
                         ->relationship('user', 'name')
                         ->searchable()
-                        ->placeholder('User')
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -167,7 +166,6 @@ class TenantResource extends Resource
                         ->required()
                         ->relationship('subscription', 'name')
                         ->searchable()
-                        ->placeholder('Subscription')
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -180,7 +178,6 @@ class TenantResource extends Resource
                         ->nullable()
                         ->relationship('tenantRequest', 'email')
                         ->searchable()
-                        ->placeholder('Tenant Request')
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,

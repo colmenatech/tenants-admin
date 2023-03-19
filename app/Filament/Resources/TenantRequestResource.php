@@ -53,7 +53,7 @@ class TenantRequestResource extends Resource
                             fn(?Model $record) => $record
                         )
                         ->email()
-                        ->placeholder('Email')
+                        ->placeholder(__('Email'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -69,7 +69,7 @@ class TenantRequestResource extends Resource
                             'phone',
                             fn(?Model $record) => $record
                         )
-                        ->placeholder('Phone')
+                        ->placeholder(__('Phone'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -90,7 +90,7 @@ class TenantRequestResource extends Resource
                             'strike',
                         ])
                         ->required()
-                        ->placeholder('Description')
+                        ->placeholder(__('Description'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -108,7 +108,7 @@ class TenantRequestResource extends Resource
                                 '/uploads/' .
                                 'TenantRequests/images/'
                         )
-                        ->placeholder('Image')
+                        ->placeholder(__('Image'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,

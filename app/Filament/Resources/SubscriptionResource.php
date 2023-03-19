@@ -134,7 +134,7 @@ class SubscriptionResource extends Resource
     public static function getRelations(): array
     {
         return [
-            SubscriptionResource\RelationManagers\TenantsRelationManager::class,
+            //SubscriptionResource\RelationManagers\TenantsRelationManager::class,
         ];
     }
 
