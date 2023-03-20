@@ -128,8 +128,8 @@ class SubscriptionResource extends Resource
                     ->label(__('Price'))
                     ->toggleable()
                     ->searchable(true, null, true),
-            ])
-            ->filters([DateRangeFilter::make('created_at')]);
+            ]);
+            //->filters([DateRangeFilter::make('created_at')]);
     }
 
     public static function getRelations(): array

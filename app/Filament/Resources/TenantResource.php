@@ -228,8 +228,8 @@ class TenantResource extends Resource
                     ->label(__('Tenant Request'))
                     ->toggleable()
                     ->limit(50),*/
-            ])
-            ->filters([
+            ]);
+            /*->filters([
                 DateRangeFilter::make('created_at'),
 
                 SelectFilter::make('user_id')
@@ -244,12 +244,12 @@ class TenantResource extends Resource
                     ->multiple()
                     ->label('Subscription'),
 
-                /*SelectFilter::make('tenant_request_id')
+                SelectFilter::make('tenant_request_id')
                     ->relationship('tenantRequest', 'email')
                     ->indicator('TenantRequest')
                     ->multiple()
-                    ->label('TenantRequest'),*/
-            ]);
+                    ->label('TenantRequest'),
+            ]);*/
     }
 
     public static function getRelations(): array
