@@ -53,10 +53,10 @@ class SubscriptionResource extends Resource
                             'lg' => 12,
                         ]),
 
-                    RichEditor::make('description')
+                    TextInput::make('description')
                         ->label(__('Description'))
                         ->rules(['string'])
-                        ->disableAllToolbarButtons()
+                        //->disableAllToolbarButtons()
                         /*->disableToolbarButtons([
                             'attachFiles',
                             'blockquote',
