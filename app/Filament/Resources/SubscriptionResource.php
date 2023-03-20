@@ -87,7 +87,7 @@ class SubscriptionResource extends Resource
                             'lg' => 12,
                         ]),
 
-                    KeyValue::make('entities_threshold')
+                   /* KeyValue::make('entities_threshold')
                         ->label(__('Entities Threshold'))
                         ->nullable()
                         ->columnSpan([
@@ -103,7 +103,7 @@ class SubscriptionResource extends Resource
                             'default' => 12,
                             'md' => 12,
                             'lg' => 12,
-                        ]),
+                        ]),*/
                 ]),
             ]),
         ]);

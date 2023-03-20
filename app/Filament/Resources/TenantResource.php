@@ -114,7 +114,7 @@ class TenantResource extends Resource
                         ])
                         ->disabledOn('edit'),
 
-                    FileUpload::make('image')
+                    /*FileUpload::make('image')
                         ->label(__('Image'))
                         ->rules(['image', 'max:2048'])
                         ->nullable()
@@ -146,7 +146,7 @@ class TenantResource extends Resource
                             'default' => 12,
                             'md' => 12,
                             'lg' => 12,
-                        ]),
+                        ]),*/
 
                     Select::make('user_id')
                         ->label(__('User'))
@@ -172,7 +172,7 @@ class TenantResource extends Resource
                             'lg' => 12,
                         ]),
 
-                    Select::make('tenant_request_id')
+                    /*Select::make('tenant_request_id')
                         ->label(__('Tenant Request'))
                         ->rules(['exists:tenant_requests,id'])
                         ->nullable()
@@ -182,7 +182,7 @@ class TenantResource extends Resource
                             'default' => 12,
                             'md' => 12,
                             'lg' => 12,
-                        ]),
+                        ]),*/
                 ]),
             ]),
         ]);
@@ -212,10 +212,10 @@ class TenantResource extends Resource
                     ->toggleable()
                     ->searchable(true, null, true)
                     ->limit(50),
-                Tables\Columns\ImageColumn::make('image')
+                /*Tables\Columns\ImageColumn::make('image')
                     ->label(__('Image'))
                     ->toggleable()
-                    ->circular(),
+                    ->circular(),*/
                 Tables\Columns\TextColumn::make('user.name')
                     ->label(__('User'))
                     ->toggleable()
@@ -224,10 +224,10 @@ class TenantResource extends Resource
                     ->label(__('Subscription'))
                     ->toggleable()
                     ->limit(50),
-                Tables\Columns\TextColumn::make('tenantRequest.email')
+               /* Tables\Columns\TextColumn::make('tenantRequest.email')
                     ->label(__('Tenant Request'))
                     ->toggleable()
-                    ->limit(50),
+                    ->limit(50),*/
             ])
             ->filters([
                 DateRangeFilter::make('created_at'),
@@ -244,17 +244,17 @@ class TenantResource extends Resource
                     ->multiple()
                     ->label('Subscription'),
 
-                SelectFilter::make('tenant_request_id')
+                /*SelectFilter::make('tenant_request_id')
                     ->relationship('tenantRequest', 'email')
                     ->indicator('TenantRequest')
                     ->multiple()
-                    ->label('TenantRequest'),
+                    ->label('TenantRequest'),*/
             ]);
     }
 
     public static function getRelations(): array
     {
-        return [TenantResource\RelationManagers\TagsRelationManager::class];
+        return []; // [TenantResource\RelationManagers\TagsRelationManager::class];
     }
 
     public static function getPages(): array

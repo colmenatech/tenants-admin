@@ -22,6 +22,8 @@ use App\Filament\Resources\TenantRequestResource\Pages;
 
 class TenantRequestResource extends Resource
 {
+    protected static bool $shouldRegisterNavigation = false;
+
     protected static ?string $model = TenantRequest::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
