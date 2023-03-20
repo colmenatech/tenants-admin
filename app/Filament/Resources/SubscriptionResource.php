@@ -56,7 +56,8 @@ class SubscriptionResource extends Resource
                     RichEditor::make('description')
                         ->label(__('Description'))
                         ->rules(['string'])
-                        ->disableToolbarButtons([
+                        ->disableAllToolbarButtons()
+                        /*->disableToolbarButtons([
                             'attachFiles',
                             'blockquote',
                             'codeBlock',
@@ -65,7 +66,7 @@ class SubscriptionResource extends Resource
                             //'italic',
                             //'link',
                             'strike',
-                        ])
+                        ])*/
                         ->required()
                         ->placeholder('Description')
                         ->columnSpan([
