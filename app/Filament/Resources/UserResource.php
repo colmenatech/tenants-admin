@@ -46,7 +46,7 @@ class UserResource extends Resource
                         ->label(__('Name'))
                         ->rules(['max:255', 'string'])
                         ->required()
-                        ->placeholder('Name')
+                        ->placeholder(__('Name'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -63,7 +63,7 @@ class UserResource extends Resource
                             fn(?Model $record) => $record
                         )
                         ->email()
-                        ->placeholder('Email')
+                        ->placeholder(__('Email'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -79,7 +79,7 @@ class UserResource extends Resource
                             fn(Component $livewire) => $livewire instanceof
                                 Pages\CreateUser
                         )
-                        ->placeholder('Password')
+                        ->placeholder(__('Password'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -105,8 +105,7 @@ class UserResource extends Resource
                     ->toggleable()
                     ->searchable(true, null, true)
                     ->limit(50),
-            ])
-            ->filters([DateRangeFilter::make('created_at')]);
+            ]);
     }
 
     public static function getRelations(): array

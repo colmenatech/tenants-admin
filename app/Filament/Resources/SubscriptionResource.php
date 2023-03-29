@@ -15,7 +15,7 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use App\Filament\Filters\DateRangeFilter;
 use App\Filament\Resources\SubscriptionResource\Pages;
 
@@ -46,28 +46,18 @@ class SubscriptionResource extends Resource
                         ->label(__('Name'))
                         ->rules(['max:255', 'string'])
                         ->required()
-                        ->placeholder('Name')
+                        ->placeholder(__('Name'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
                             'lg' => 12,
                         ]),
 
-                    RichEditor::make('description')
+                    TextInput::make('description')
                         ->label(__('Description'))
                         ->rules(['string'])
-                        ->disableToolbarButtons([
-                            'attachFiles',
-                            'blockquote',
-                            'codeBlock',
-                            'h2',
-                            'h3',
-                            //'italic',
-                            //'link',
-                            'strike',
-                        ])
                         ->required()
-                        ->placeholder('Description')
+                        ->placeholder(__('Description'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -79,7 +69,19 @@ class SubscriptionResource extends Resource
                         ->rules(['numeric'])
                         ->nullable()
                         ->numeric()
-                        ->placeholder('Price')
+                        ->placeholder(__('Price'))
+                        ->columnSpan([
+                            'default' => 12,
+                            'md' => 12,
+                            'lg' => 12,
+                        ]),
+
+                    Select::make('period')
+                        ->label(__('Period'))
+                        ->nullable()
+                        ->options(SubscriptionResource::periods())
+                        ->searchable()
+                        ->placeholder(__('Period'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -127,8 +129,12 @@ class SubscriptionResource extends Resource
                     ->label(__('Price'))
                     ->toggleable()
                     ->searchable(true, null, true),
-            ])
-            ->filters([DateRangeFilter::make('created_at')]);
+                Tables\Columns\TextColumn::make('period')
+                    ->enum(SubscriptionResource::periods())
+                    ->label(__('Period'))
+                    ->toggleable()
+                    ->searchable(true, null, true),                   
+            ]);
     }
 
     public static function getRelations(): array
@@ -145,6 +151,17 @@ class SubscriptionResource extends Resource
             'create' => Pages\CreateSubscription::route('/create'),
             'view' => Pages\ViewSubscription::route('/{record}'),
             'edit' => Pages\EditSubscription::route('/{record}/edit'),
+        ];
+    }
+
+    public static function periods(){
+        return [
+            'day' => __('day'),
+            'week' => __('week'),
+            'month' => __('month'),
+            'quarter' => __('quarter'),
+            'semester' => __('semester'),
+            'year' => __('year')
         ];
     }
 }

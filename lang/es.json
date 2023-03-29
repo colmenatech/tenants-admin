@@ -11,7 +11,7 @@
   "Entities Threshold": "Límite de entidades",
   "Features Gates": "Features Gates",
   "Tags": "Etiquetas",
-  "Tenant Requests": "Solicitudes de inquilino",
+  "TenantRequests": "Solicitudes de inquilino",
   "Email": "Correo electrónico",
   "Phone": "Teléfono",
   "Image": "Imagen",
@@ -23,5 +23,11 @@
   "Database": "Base de datos",
   "System Settings": "Configuración del sistema",
   "Settings": "Configuración",
-  "Tenant Request": "Solicitud de Inquilino"
+  "Period": "Período",
+  "day": "Un día",
+  "week": "Una semana",
+  "month": "Un mes",
+  "quarter": "Un trimestre",
+  "semester": "Un semestre",
+  "year": "Un año"
 }

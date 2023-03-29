@@ -21,7 +21,7 @@ class Subscription extends Model
         'price',
         'entities_threshold',
         'features_gates',
-        'unit_of_periodicity',
+        'period',
     ];
 
     protected $searchableFields = ['*'];

@@ -14,7 +14,6 @@ use Filament\Resources\{Form, Table, Resource};
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\RichEditor;
 use App\Filament\Filters\DateRangeFilter;
 use App\Filament\Resources\TagResource\Pages;
 
@@ -45,28 +44,18 @@ class TagResource extends Resource
                         ->label(__('Name'))
                         ->rules(['max:255', 'string'])
                         ->required()
-                        ->placeholder('Name')
+                        ->placeholder(__('Name'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
                             'lg' => 12,
                         ]),
 
-                    RichEditor::make('description')
+                    TextInput::make('description')
                         ->label(__('Description'))
                         ->rules(['string'])
-                        ->disableToolbarButtons([
-                            'attachFiles',
-                            'blockquote',
-                            'codeBlock',
-                            'h2',
-                            'h3',
-                            //'italic',
-                            //'link',
-                            'strike',
-                        ])
                         ->required()
-                        ->placeholder('Description')
+                        ->placeholder(__('Description'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -92,8 +81,7 @@ class TagResource extends Resource
                     ->toggleable()
                     ->searchable()
                     ->limit(50),
-            ])
-            ->filters([DateRangeFilter::make('created_at')]);
+            ]);
     }
 
     public static function getRelations(): array

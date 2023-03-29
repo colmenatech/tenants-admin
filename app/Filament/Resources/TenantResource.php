@@ -66,7 +66,7 @@ class TenantResource extends Resource
                             'name',
                             fn(?Model $record) => $record
                         )
-                        ->placeholder('Name')
+                        ->placeholder(__('Name'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -88,13 +88,12 @@ class TenantResource extends Resource
                             'domain',
                             fn(?Model $record) => $record
                         )
-                        ->placeholder('Domain')
+                        ->placeholder(__('Domain'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
                             'lg' => 12,
                         ])
-                        //->suffix('.indespro.local')
                         ->helperText('Ej. Nombre.indespro.local'),
 
                     TextInput::make('database')
@@ -106,7 +105,7 @@ class TenantResource extends Resource
                             'database',
                             fn(?Model $record) => $record
                         )
-                        ->placeholder('Database')
+                        ->placeholder(__('Database'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -123,7 +122,7 @@ class TenantResource extends Resource
                         ->directory(
                             request()->host() . '/uploads/' . 'Tenants/images/'
                         )
-                        ->placeholder('Image')
+                        ->placeholder(__('Image'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -154,7 +153,7 @@ class TenantResource extends Resource
                         ->nullable()
                         ->relationship('user', 'name')
                         ->searchable()
-                        ->placeholder('User')
+                        ->placeholder(__('User'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -167,7 +166,7 @@ class TenantResource extends Resource
                         ->required()
                         ->relationship('subscription', 'name')
                         ->searchable()
-                        ->placeholder('Subscription')
+                        ->placeholder(__('Subscription'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -175,12 +174,12 @@ class TenantResource extends Resource
                         ]),
 
                     Select::make('tenant_request_id')
-                        ->label(__('Tenant Request'))
+                        ->label(__('TenantRequest'))
                         ->rules(['exists:tenant_requests,id'])
                         ->nullable()
                         ->relationship('tenantRequest', 'email')
                         ->searchable()
-                        ->placeholder('Tenant Request')
+                        ->placeholder(__('TenantRequest'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -215,43 +214,16 @@ class TenantResource extends Resource
                     ->toggleable()
                     ->searchable(true, null, true)
                     ->limit(50),
-                Tables\Columns\ImageColumn::make('image')
-                    ->label(__('Image'))
-                    ->toggleable()
-                    ->circular(),
                 Tables\Columns\TextColumn::make('user.name')
                     ->label(__('User'))
                     ->toggleable()
+                    ->searchable(true, null, true)
                     ->limit(50),
                 Tables\Columns\TextColumn::make('subscription.name')
                     ->label(__('Subscription'))
                     ->toggleable()
+                    ->searchable(true, null, true)
                     ->limit(50),
-                Tables\Columns\TextColumn::make('tenantRequest.email')
-                    ->label(__('Tenant Request'))
-                    ->toggleable()
-                    ->limit(50),
-            ])
-            ->filters([
-                DateRangeFilter::make('created_at'),
-
-                SelectFilter::make('user_id')
-                    ->relationship('user', 'name')
-                    ->indicator('User')
-                    ->multiple()
-                    ->label('User'),
-
-                SelectFilter::make('subscription_id')
-                    ->relationship('subscription', 'name')
-                    ->indicator('Subscription')
-                    ->multiple()
-                    ->label('Subscription'),
-
-                SelectFilter::make('tenant_request_id')
-                    ->relationship('tenantRequest', 'email')
-                    ->indicator('TenantRequest')
-                    ->multiple()
-                    ->label('TenantRequest'),
             ]);
     }
 

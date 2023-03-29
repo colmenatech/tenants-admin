@@ -29,6 +29,7 @@ class SubscriptionStoreRequest extends FormRequest
             'price' => ['nullable', 'numeric'],
             'entities_threshold' => ['nullable', 'json'],
             'features_gates' => ['nullable', 'json'],
+            'period' => ['required', 'string']
         ];
     }
 }

@@ -28,7 +28,7 @@ class SubscriptionFactory extends Factory
             'price' => $this->faker->randomNumber(1),
             'entities_threshold' => [],
             'features_gates' => [],
-            'unit_of_periodicity' => 'hour',
+            'period' => 'month',
         ];
     }
 }

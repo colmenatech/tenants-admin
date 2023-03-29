@@ -16,7 +16,6 @@ use Filament\Forms\Components\Card;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\RichEditor;
 use App\Filament\Filters\DateRangeFilter;
 use App\Filament\Resources\TenantRequestResource\Pages;
 
@@ -53,7 +52,7 @@ class TenantRequestResource extends Resource
                             fn(?Model $record) => $record
                         )
                         ->email()
-                        ->placeholder('Email')
+                        ->placeholder(__('Email'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -69,28 +68,18 @@ class TenantRequestResource extends Resource
                             'phone',
                             fn(?Model $record) => $record
                         )
-                        ->placeholder('Phone')
+                        ->placeholder(__('Phone'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
                             'lg' => 12,
                         ]),
 
-                    RichEditor::make('description')
+                    TextInput::make('description')
                         ->label(__('Description'))
                         ->rules(['string'])
-                        ->disableToolbarButtons([
-                            'attachFiles',
-                            'blockquote',
-                            'codeBlock',
-                            'h2',
-                            'h3',
-                            //'italic',
-                            //'link',
-                            'strike',
-                        ])
                         ->required()
-                        ->placeholder('Description')
+                        ->placeholder(__('Description'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -108,7 +97,7 @@ class TenantRequestResource extends Resource
                                 '/uploads/' .
                                 'TenantRequests/images/'
                         )
-                        ->placeholder('Image')
+                        ->placeholder(__('Image'))
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -134,17 +123,11 @@ class TenantRequestResource extends Resource
                     ->toggleable()
                     ->searchable(true, null, true)
                     ->limit(50),
-                Tables\Columns\TextColumn::make('description')
-                    ->label(__('Description'))
-                    ->toggleable()
-                    ->searchable()
-                    ->limit(50),
                 Tables\Columns\ImageColumn::make('image')
                     ->label(__('Image'))
                     ->toggleable()
                     ->circular(),
-            ])
-            ->filters([DateRangeFilter::make('created_at')]);
+            ]);
     }
 
     public static function getRelations(): array
