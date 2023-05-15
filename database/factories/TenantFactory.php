@@ -22,11 +22,14 @@ class TenantFactory extends Factory
      */
     public function definition()
     {
+
+        $domain_name=$this->faker->unique->domainName;
+
         return [
             'status' => $this->faker->boolean,
             'name' => $this->faker->unique->name(),
-            'domain' => $this->faker->unique->domainName,
-            'database' => $this->faker->unique->text(255),
+            'domain' =>$domain_name ,
+            'database' => Str::snake(explode('.', $domain_name)[0]),
             'system_settings' => [],
             'settings' => [],
             'user_id' => \App\Models\User::factory(),
